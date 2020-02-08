@@ -20,7 +20,7 @@ class DynamicFormProcess {
         MaterialPageRoute(
           builder: (context) => DynamicPage(
             process: process,
-            page: process.structure.pages.first,
+            pageNumber: 0,
           ),
         ),
       );

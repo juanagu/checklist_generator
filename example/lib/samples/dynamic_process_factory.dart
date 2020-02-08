@@ -13,8 +13,9 @@ class DynamicProcessFactory {
               title: "Observaciones",
               steps: [
                 ProcessStep(
-                  label:
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel tellus sagittis, malesuada est vel, cursus velit. Donec eu turpis eget magna fringilla convallis a quis nisi. Cras vel condimentum dui. Vivamus a purus sit amet mauris porttitor aliquet. In sit amet orci risus. Nunc convallis massa diam, vel varius metus porttitor id. Curabitur mattis dui lectus, lacinia vehicula ligula elementum sit amet. Ut faucibus pretium cursus. Vestibulum id feugiat mi, vel varius neque. In auctor varius placerat. Phasellus non purus volutpat, dignissim eros vel, hendrerit diam",
+                  label: "Observacion 1",
+                  description:
+                      "Observacion 1 Observacion 1 Observacion 1 Observacion 1 Observacion 1 Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1",
                   isRequired: true,
                   states: [
                     StepState(stateType: StateType.pending),
@@ -73,6 +74,7 @@ class DynamicProcessFactory {
               steps: [
                 ProcessStep(
                   label: "Comentario 1",
+                  isRequired: true,
                   states: [
                     StepState(stateType: StateType.pending),
                     StepState(stateType: StateType.inProgress),
@@ -81,6 +83,7 @@ class DynamicProcessFactory {
                 ),
                 ProcessStep(
                   label: "Comentario 2",
+                  isRequired: true,
                   states: [
                     StepState(stateType: StateType.pending),
                     StepState(stateType: StateType.inProgress),
@@ -89,6 +92,263 @@ class DynamicProcessFactory {
                 ),
                 ProcessStep(
                   label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+              ],
+            ),
+            StepGroup(
+              title: "Comentarios",
+              steps: [
+                ProcessStep(
+                  label: "Comentario 1",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 2",
+                  isRequired: true,
+                  states: [
+                    StepState(stateType: StateType.pending),
+                    StepState(stateType: StateType.inProgress),
+                    StepState(stateType: StateType.finished),
+                  ],
+                ),
+                ProcessStep(
+                  label: "Comentario 3",
+                  isRequired: true,
                   states: [
                     StepState(stateType: StateType.pending),
                     StepState(stateType: StateType.inProgress),

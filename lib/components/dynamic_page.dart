@@ -5,27 +5,27 @@ import 'step_group_component.dart';
 
 class DynamicPage extends StatefulWidget {
   final DynamicProcess process;
-  final Page page;
+  final int pageNumber;
 
   DynamicPage({
     this.process,
-    this.page,
+    this.pageNumber,
   });
 
   @override
   State<StatefulWidget> createState() {
     return DynamicPageState(
       process: process,
-      page: page,
+      pageNumber: pageNumber,
     );
   }
 
-  void openNewPage(BuildContext context, Page page) {
+  void openNewPage(BuildContext context, int pageNumber) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => DynamicPage(
           process: process,
-          page: page,
+          pageNumber: pageNumber,
         ),
       ),
     );
@@ -39,31 +39,37 @@ class DynamicPage extends StatefulWidget {
 class DynamicPageState extends State<DynamicPage> {
   DynamicProcess process;
   Page page;
+  int pageNumber;
+  bool isComplete;
 
   DynamicPageState({
     this.process,
-    this.page,
-  });
+    this.pageNumber,
+  }) {
+    page = _getCurrentPage(process);
+    isComplete = page.isValid();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return _buildPage(context, page);
+    return _buildPage(context);
   }
 
-  Widget _buildPage(BuildContext context, Page page) {
+  Widget _buildPage(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(page.title),
       ),
-      body: SafeArea(
+      body: Container(
         child: ListView(
           children: [
             Column(
               children: _getGroups(context, page),
             ),
-            RaisedButton(
-              onPressed: () => onPressedPageButton(context, page),
-              child: Text(page.buttonTitle),
+            MaterialButton(
+              height: 60.0,
+              onPressed: isComplete ? () => onPressedPageButton(context) : null,
+              child: Text(isComplete ? page.buttonTitle : page.errorMessage),
             ),
           ],
         ),
@@ -88,16 +94,23 @@ class DynamicPageState extends State<DynamicPage> {
     var newProcess = await process.changeStateTo(processStep);
     setState(() {
       process = newProcess;
+      page = _getCurrentPage(newProcess);
+      isComplete = page.isValid();
     });
   }
 
-  Future<void> onPressedPageButton(BuildContext context, Page page) async {
-    var indexOf = process.structure.pages.indexOf(page);
-    if (indexOf >= 0 && indexOf < process.structure.pages.length - 1) {
-      widget.openNewPage(context, process.structure.pages[indexOf + 1]);
-    } else {
-      await process.finished();
-      widget.finished(context);
+  Future<void> onPressedPageButton(BuildContext context) async {
+    if (page.isValid()) {
+      if (pageNumber < process.structure.pages.length - 1) {
+        widget.openNewPage(context, pageNumber + 1);
+      } else {
+        await process.finished();
+        widget.finished(context);
+      }
     }
+  }
+
+  Page _getCurrentPage(DynamicProcess dynamicProcess) {
+    return dynamicProcess.structure.pages[pageNumber];
   }
 }
