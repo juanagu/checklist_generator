@@ -1,4 +1,4 @@
-import 'package:checklist_generator/core/dynamic_process.dart';
+import 'package:checklist_generator/core/dynamic_checklist.dart';
 import 'package:checklist_generator/core/checklist_page.dart';
 import 'package:checklist_generator/core/step_group.dart';
 import 'package:checklist_generator/core/checklist_step.dart';

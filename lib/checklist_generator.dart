@@ -3,7 +3,7 @@ library checklist_generator;
 import 'package:flutter/material.dart';
 
 import 'components/dynamic_page.dart';
-import 'core/dynamic_process.dart';
+import 'core/dynamic_checklist.dart';
 
 class ChecklistGenerator {
   final BuildContext context;

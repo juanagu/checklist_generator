@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/dynamic_process.dart';
+import '../core/dynamic_checklist.dart';
 import 'single_comment_page.dart';
 import 'step_group_component.dart';
 import '../core/checklist_page.dart';

@@ -1,6 +1,6 @@
 import 'checklist_page.dart';
 import 'checklist_step.dart';
-import 'dynamic_process_listener.dart';
+import 'dynamic_checklist_listener.dart';
 
 class DynamicChecklist {
   final String identifier;
