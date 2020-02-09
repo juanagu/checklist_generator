@@ -1,5 +1,5 @@
-import 'package:dynamic_form_process/dynamic_process.dart';
 import 'package:flutter/material.dart';
+import '../core/step_group.dart';
 
 class HeaderStepGroup extends StatelessWidget {
   final StepGroup stepGroup;

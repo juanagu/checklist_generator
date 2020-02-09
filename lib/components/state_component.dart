@@ -1,8 +1,8 @@
-import 'package:dynamic_form_process/dynamic_process.dart';
 import 'package:flutter/material.dart';
+import '../core/checklist_step.dart';
 
 class StateComponent extends StatelessWidget {
-  final ProcessStep processStep;
+  final ChecklistStep processStep;
   final Function onChanged;
 
   const StateComponent({

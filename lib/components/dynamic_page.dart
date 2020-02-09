@@ -1,10 +1,14 @@
+import 'package:dynamic_form_process/components/single_comment_page.dart';
 import 'package:flutter/material.dart';
 
-import '../dynamic_process.dart';
+import '../core/dynamic_process.dart';
 import 'step_group_component.dart';
+import '../core/checklist_page.dart';
+import '../core/step_group.dart';
+import '../core/checklist_step.dart';
 
 class DynamicPage extends StatefulWidget {
-  final DynamicProcess process;
+  final DynamicChecklist process;
   final int pageNumber;
 
   DynamicPage({
@@ -31,14 +35,18 @@ class DynamicPage extends StatefulWidget {
     );
   }
 
+  void closeCurrentPage(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
   void finished(BuildContext context) {
-    process.structure.pages.forEach((p) => Navigator.of(context).pop());
+    process.pages.forEach((p) => closeCurrentPage(context));
   }
 }
 
 class DynamicPageState extends State<DynamicPage> {
-  DynamicProcess process;
-  Page page;
+  DynamicChecklist process;
+  ChecklistPage page;
   int pageNumber;
   bool isComplete;
 
@@ -77,20 +85,22 @@ class DynamicPageState extends State<DynamicPage> {
     );
   }
 
-  List<Widget> _getGroups(BuildContext context, Page page) {
-    var stepGroups = page.stepGroups;
+  List<Widget> _getGroups(BuildContext context, ChecklistPage page) {
+    var stepGroups = page.checklistGroups;
 
     List<Widget> components = List();
     for (StepGroup stepGroup in stepGroups) {
       components.add(StepGroupComponent(
         stepGroup: stepGroup,
         onChangedStep: onChangedStep,
+        onPressedSubStep: onPressedSubStep,
+        onPressedComment: onPressedComment,
       ));
     }
     return components;
   }
 
-  onChangedStep(bool value, ProcessStep processStep) async {
+  onChangedStep(bool value, ChecklistStep processStep) async {
     var newProcess = await process.changeStateTo(processStep);
     setState(() {
       process = newProcess;
@@ -99,9 +109,25 @@ class DynamicPageState extends State<DynamicPage> {
     });
   }
 
+  onPressedSubStep(ChecklistStep checklistStep) {}
+
+  onPressedComment(BuildContext context, ChecklistStep checklistStep) {
+    if (checklistStep.canWriteMultiplesComments) {
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => SingleCommentPage(
+            title: checklistStep.label,
+            onSaveComment: (comment) => print(comment),
+          ),
+        ),
+      );
+    }
+  }
+
   Future<void> onPressedPageButton(BuildContext context) async {
     if (page.isValid()) {
-      if (pageNumber < process.structure.pages.length - 1) {
+      if (pageNumber < process.pages.length - 1) {
         widget.openNewPage(context, pageNumber + 1);
       } else {
         await process.finished();
@@ -110,7 +136,7 @@ class DynamicPageState extends State<DynamicPage> {
     }
   }
 
-  Page _getCurrentPage(DynamicProcess dynamicProcess) {
-    return dynamicProcess.structure.pages[pageNumber];
+  ChecklistPage _getCurrentPage(DynamicChecklist dynamicProcess) {
+    return dynamicProcess.pages[pageNumber];
   }
 }

@@ -1,17 +1,22 @@
-import 'package:dynamic_form_process/dynamic_process.dart';
 import 'package:flutter/material.dart';
 
 import 'header_step_group.dart';
 import 'step_component.dart';
+import '../core/step_group.dart';
+import '../core/checklist_step.dart';
 
 class StepGroupComponent extends StatelessWidget {
   final StepGroup stepGroup;
   final Function onChangedStep;
+  final Function onPressedSubStep;
+  final Function onPressedComment;
 
   const StepGroupComponent({
     Key key,
     this.stepGroup,
     this.onChangedStep,
+    this.onPressedSubStep,
+    this.onPressedComment,
   }) : super(key: key);
 
   @override
@@ -35,12 +40,15 @@ class StepGroupComponent extends StatelessWidget {
     );
   }
 
-  List<Widget> _getSteps(BuildContext context, List<ProcessStep> processSteps) {
+  List<Widget> _getSteps(
+      BuildContext context, List<ChecklistStep> processSteps) {
     List<Widget> steps = List();
-    for (ProcessStep processStep in processSteps) {
+    for (ChecklistStep processStep in processSteps) {
       steps.add(StepComponent(
-        processStep: processStep,
+        checklistStep: processStep,
         onChanged: onChangedStep,
+        onPressedSubStep: onPressedSubStep,
+        onPressedComment: onPressedComment,
       ));
     }
     return steps;

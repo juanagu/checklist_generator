@@ -1,13 +1,13 @@
 library dynamic_form_process;
 
-import 'package:dynamic_form_process/dynamic_process.dart';
+import 'package:dynamic_form_process/core/dynamic_process.dart';
 import 'package:flutter/material.dart';
 
 import 'components/dynamic_page.dart';
 
 class DynamicFormProcess {
   final BuildContext context;
-  final DynamicProcess process;
+  final DynamicChecklist process;
 
   DynamicFormProcess({
     this.context,

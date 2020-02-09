@@ -1,8 +1,8 @@
-import 'package:dynamic_form_process/dynamic_process.dart';
 import 'package:flutter/material.dart';
+import '../core/checklist_step.dart';
 
 class StepDescription extends StatelessWidget {
-  final ProcessStep processStep;
+  final ChecklistStep processStep;
 
   const StepDescription({
     Key key,
@@ -46,10 +46,8 @@ class StepDescription extends StatelessWidget {
             style: Theme.of(context).textTheme.body1,
           ),
           TextSpan(
-            text: processStep.isRequired ? "*" : "",
-            style: Theme.of(context).textTheme.body1.copyWith(
-                  color: Colors.redAccent,
-                ),
+            text: processStep.isRequired ? "" : "(Optional)",
+            style: Theme.of(context).textTheme.caption,
           )
         ],
       ),
