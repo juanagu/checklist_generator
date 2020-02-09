@@ -18,7 +18,6 @@ class DynamicProcessFactory {
                 label: "Observacion 1",
                 description:
                     "Observacion 1 Observacion 1 Observacion 1 Observacion 1 Observacion 1 Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1Observacion 1",
-                isRequired: true,
                 canWriteAComment: true,
                 subSteps: ChecklistPage(
                   title: "Observacion 1",
@@ -29,7 +28,6 @@ class DynamicProcessFactory {
                       steps: [
                         ChecklistStep(
                           label: "Finish 1",
-                          isRequired: true,
                           states: [
                             StepState(stateType: StateType.pending),
                             StepState(stateType: StateType.inProgress),

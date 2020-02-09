@@ -9,27 +9,31 @@ import '../core/checklist_step.dart';
 
 class DynamicPage extends StatefulWidget {
   final DynamicChecklist process;
-  final int pageNumber;
+  final ChecklistPage checklistPage;
+  final bool isSubPage;
 
   DynamicPage({
     this.process,
-    this.pageNumber,
+    this.checklistPage,
+    this.isSubPage = false,
   });
 
   @override
   State<StatefulWidget> createState() {
     return DynamicPageState(
       checklist: process,
-      pageNumber: pageNumber,
+      checklistPage: checklistPage,
     );
   }
 
-  void openNewPage(BuildContext context, int pageNumber) {
+  void openNewPage(
+      BuildContext context, ChecklistPage checklistPage, bool isSubPage) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => DynamicPage(
           process: process,
-          pageNumber: pageNumber,
+          checklistPage: checklistPage,
+          isSubPage: isSubPage,
         ),
       ),
     );
@@ -46,16 +50,14 @@ class DynamicPage extends StatefulWidget {
 
 class DynamicPageState extends State<DynamicPage> {
   DynamicChecklist checklist;
-  ChecklistPage page;
-  int pageNumber;
+  ChecklistPage checklistPage;
   bool isComplete;
 
   DynamicPageState({
     this.checklist,
-    this.pageNumber,
+    this.checklistPage,
   }) {
-    page = _getCurrentPage(checklist);
-    isComplete = page.isValid();
+    isComplete = checklistPage.isValid();
   }
 
   @override
@@ -66,18 +68,20 @@ class DynamicPageState extends State<DynamicPage> {
   Widget _buildPage(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(page.title),
+        title: Text(checklistPage.title),
       ),
       body: Container(
         child: ListView(
           children: [
             Column(
-              children: _getGroups(context, page),
+              children: _getGroups(context, checklistPage),
             ),
             MaterialButton(
               height: 60.0,
               onPressed: isComplete ? () => onPressedPageButton(context) : null,
-              child: Text(isComplete ? page.buttonTitle : page.errorMessage),
+              child: Text(isComplete
+                  ? checklistPage.buttonTitle
+                  : checklistPage.errorMessage),
             ),
           ],
         ),
@@ -108,12 +112,13 @@ class DynamicPageState extends State<DynamicPage> {
   void refreshStateWithNewChecklistState(DynamicChecklist newChecklist) {
     setState(() {
       checklist = newChecklist;
-      page = _getCurrentPage(newChecklist);
-      isComplete = page.isValid();
+      isComplete = checklistPage.isValid();
     });
   }
 
-  onPressedSubStep(ChecklistStep checklistStep) {}
+  onPressedSubStep(ChecklistStep checklistStep) {
+    widget.openNewPage(context, checklistStep.subSteps, true);
+  }
 
   onPressedComment(BuildContext context, ChecklistStep checklistStep) {
     if (checklistStep.canWriteMultiplesComments) {
@@ -132,18 +137,23 @@ class DynamicPageState extends State<DynamicPage> {
   }
 
   Future<void> onPressedPageButton(BuildContext context) async {
-    if (page.isValid()) {
-      if (pageNumber < checklist.pages.length - 1) {
-        widget.openNewPage(context, pageNumber + 1);
+    if (checklistPage.isValid()) {
+      if (!widget.isSubPage) {
+        await nextAction(context);
       } else {
-        await checklist.finished();
-        widget.finished(context);
+        widget.closeCurrentPage(context);
       }
     }
   }
 
-  ChecklistPage _getCurrentPage(DynamicChecklist dynamicChecklist) {
-    return dynamicChecklist.pages[pageNumber];
+  Future nextAction(BuildContext context) async {
+    var pageNumber = checklist.pages.indexOf(checklistPage);
+    if (pageNumber < checklist.pages.length - 1) {
+      widget.openNewPage(context, checklist.pages[pageNumber + 1], false);
+    } else {
+      await checklist.finished();
+      widget.finished(context);
+    }
   }
 
   void onSaveComment(ChecklistStep checklistStep, String comment) async {
