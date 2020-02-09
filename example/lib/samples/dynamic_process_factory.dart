@@ -1,11 +1,11 @@
-import 'package:dynamic_form_process/core/dynamic_process.dart';
-import 'package:dynamic_form_process/core/checklist_page.dart';
-import 'package:dynamic_form_process/core/step_group.dart';
-import 'package:dynamic_form_process/core/checklist_step.dart';
-import 'package:dynamic_form_process/core/step_state.dart';
+import 'package:checklist_generator/core/dynamic_process.dart';
+import 'package:checklist_generator/core/checklist_page.dart';
+import 'package:checklist_generator/core/step_group.dart';
+import 'package:checklist_generator/core/checklist_step.dart';
+import 'package:checklist_generator/core/step_state.dart';
 
-class DynamicProcessFactory {
-  static DynamicChecklist mock() {
+class ChecklistFactory {
+  static DynamicChecklist createSample() {
     return DynamicChecklist(identifier: "asd-123123123", pages: [
       ChecklistPage(
         title: "Step 1",

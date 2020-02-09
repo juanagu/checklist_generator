@@ -1,19 +1,19 @@
-import 'package:dynamic_form_process/components/single_comment_page.dart';
 import 'package:flutter/material.dart';
 
 import '../core/dynamic_process.dart';
+import 'single_comment_page.dart';
 import 'step_group_component.dart';
 import '../core/checklist_page.dart';
 import '../core/step_group.dart';
 import '../core/checklist_step.dart';
 
 class DynamicPage extends StatefulWidget {
-  final DynamicChecklist process;
+  final DynamicChecklist dynamicChecklist;
   final ChecklistPage checklistPage;
   final bool isSubPage;
 
   DynamicPage({
-    this.process,
+    this.dynamicChecklist,
     this.checklistPage,
     this.isSubPage = false,
   });
@@ -21,7 +21,7 @@ class DynamicPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return DynamicPageState(
-      checklist: process,
+      checklist: dynamicChecklist,
       checklistPage: checklistPage,
     );
   }
@@ -31,7 +31,7 @@ class DynamicPage extends StatefulWidget {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => DynamicPage(
-          process: process,
+          dynamicChecklist: dynamicChecklist,
           checklistPage: checklistPage,
           isSubPage: isSubPage,
         ),
@@ -44,7 +44,7 @@ class DynamicPage extends StatefulWidget {
   }
 
   void finished(BuildContext context) {
-    process.pages.forEach((p) => closeCurrentPage(context));
+    dynamicChecklist.pages.forEach((p) => closeCurrentPage(context));
   }
 }
 

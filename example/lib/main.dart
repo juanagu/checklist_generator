@@ -1,4 +1,4 @@
-import 'package:dynamic_form_process/dynamic_form_process.dart';
+import 'package:checklist_generator/checklist_generator.dart';
 import 'package:flutter/material.dart';
 
 import 'samples/dynamic_process_factory.dart';
@@ -34,10 +34,10 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: RaisedButton(
-          child: Text("Init Process"),
-          onPressed: () => DynamicFormProcess(
+          child: Text("Init Check List"),
+          onPressed: () => ChecklistGenerator(
             context: context,
-            process: DynamicProcessFactory.mock(),
+            dynamicChecklist: ChecklistFactory.createSample(),
           ).start(),
         ),
       ),

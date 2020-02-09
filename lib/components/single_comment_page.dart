@@ -1,5 +1,6 @@
-import 'package:dynamic_form_process/core/checklist_step.dart';
 import 'package:flutter/material.dart';
+
+import '../core/checklist_step.dart';
 
 class SingleCommentPage extends StatefulWidget {
   final String title;

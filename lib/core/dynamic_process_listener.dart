@@ -1,8 +1,7 @@
 import 'dart:async';
 
-import 'package:dynamic_form_process/core/dynamic_process.dart';
-
 import 'checklist_step.dart';
+import 'dynamic_process.dart';
 
 abstract class DynamicChecklistListener {
   Future<void> onFinished(DynamicChecklist process);

@@ -1,5 +1,5 @@
-import 'package:dynamic_form_process/core/checklist_page.dart';
 
+import 'checklist_page.dart';
 import 'step_comment.dart';
 import 'step_state.dart';
 

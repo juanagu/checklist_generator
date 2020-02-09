@@ -1,6 +1,6 @@
-# dynamic_form_process
+# checklist_generator
 
-A increible dynamic form to make process 
+Flutter checklist generator 
 
 ## Getting Started
 
