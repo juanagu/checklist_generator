@@ -19,7 +19,7 @@ class DynamicPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return DynamicPageState(
-      process: process,
+      checklist: process,
       pageNumber: pageNumber,
     );
   }
@@ -45,16 +45,16 @@ class DynamicPage extends StatefulWidget {
 }
 
 class DynamicPageState extends State<DynamicPage> {
-  DynamicChecklist process;
+  DynamicChecklist checklist;
   ChecklistPage page;
   int pageNumber;
   bool isComplete;
 
   DynamicPageState({
-    this.process,
+    this.checklist,
     this.pageNumber,
   }) {
-    page = _getCurrentPage(process);
+    page = _getCurrentPage(checklist);
     isComplete = page.isValid();
   }
 
@@ -101,10 +101,14 @@ class DynamicPageState extends State<DynamicPage> {
   }
 
   onChangedStep(bool value, ChecklistStep processStep) async {
-    var newProcess = await process.changeStateTo(processStep);
+    var newChecklist = await checklist.changeStateTo(processStep);
+    refreshStateWithNewChecklistState(newChecklist);
+  }
+
+  void refreshStateWithNewChecklistState(DynamicChecklist newChecklist) {
     setState(() {
-      process = newProcess;
-      page = _getCurrentPage(newProcess);
+      checklist = newChecklist;
+      page = _getCurrentPage(newChecklist);
       isComplete = page.isValid();
     });
   }
@@ -118,7 +122,9 @@ class DynamicPageState extends State<DynamicPage> {
         MaterialPageRoute(
           builder: (context) => SingleCommentPage(
             title: checklistStep.label,
-            onSaveComment: (comment) => print(comment),
+            comment: checklistStep.getLastComment(),
+            checklistStep: checklistStep,
+            onSaveComment: onSaveComment,
           ),
         ),
       );
@@ -127,16 +133,22 @@ class DynamicPageState extends State<DynamicPage> {
 
   Future<void> onPressedPageButton(BuildContext context) async {
     if (page.isValid()) {
-      if (pageNumber < process.pages.length - 1) {
+      if (pageNumber < checklist.pages.length - 1) {
         widget.openNewPage(context, pageNumber + 1);
       } else {
-        await process.finished();
+        await checklist.finished();
         widget.finished(context);
       }
     }
   }
 
-  ChecklistPage _getCurrentPage(DynamicChecklist dynamicProcess) {
-    return dynamicProcess.pages[pageNumber];
+  ChecklistPage _getCurrentPage(DynamicChecklist dynamicChecklist) {
+    return dynamicChecklist.pages[pageNumber];
+  }
+
+  void onSaveComment(ChecklistStep checklistStep, String comment) async {
+    checklistStep.updateComment(comment);
+    var newChecklist = await checklist.update(checklistStep);
+    refreshStateWithNewChecklistState(newChecklist);
   }
 }

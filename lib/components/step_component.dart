@@ -32,6 +32,9 @@ class StepComponent extends StatelessWidget {
         IconButton(
           icon: Icon(
             Icons.edit,
+            color: checklistStep.hasAComment()
+                ? Theme.of(context).accentColor
+                : Theme.of(context).iconTheme.color,
           ),
           onPressed: () => onPressedComment(context, checklistStep),
         ),
@@ -48,6 +51,7 @@ class StepComponent extends StatelessWidget {
         IconButton(
           icon: Icon(
             Icons.arrow_forward_ios,
+            color: Theme.of(context).iconTheme.color,
           ),
           onPressed: () => onPressedSubStep(checklistStep),
         ),

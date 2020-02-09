@@ -11,7 +11,7 @@ class ChecklistStep {
   List<StepState> states = [];
   StepState currentStepState;
 
-  List<StepComment> stepComments = List();
+  List<StepComment> stepComments = [];
   final bool isCommentRequired;
   final bool canWriteMultiplesComments;
   final bool canWriteAComment;
@@ -48,7 +48,12 @@ class ChecklistStep {
 
   void updateComment(String newComment) {
     if (canWriteAComment) {
-      if (canWriteMultiplesComments || stepComments.isEmpty) {
+      if (canWriteMultiplesComments ||
+          stepComments == null ||
+          stepComments.isEmpty) {
+        if (stepComments == null) {
+          stepComments = [];
+        }
         stepComments.add(StepComment(
           comment: newComment,
           dateTime: DateTime.now(),
@@ -72,5 +77,18 @@ class ChecklistStep {
 
   bool hasSubSteps() {
     return subSteps != null;
+  }
+
+  String getLastComment() {
+    if (stepComments == null || stepComments.isEmpty) {
+      return null;
+    }
+
+    return stepComments.last.comment;
+  }
+
+  bool hasAComment() {
+    var lastComment = getLastComment();
+    return lastComment != null && lastComment.isNotEmpty;
   }
 }

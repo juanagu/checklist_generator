@@ -16,7 +16,7 @@ class DynamicChecklist {
   Future<DynamicChecklist> changeStateTo(ChecklistStep checklistStep) async {
     checklistStep.changeState();
     if (dynamicChecklistListener != null) {
-      await dynamicChecklistListener.onChangeProcessStep(checklistStep);
+      await dynamicChecklistListener.onChangeChecklistStep(checklistStep);
     }
     return this;
   }
@@ -26,5 +26,12 @@ class DynamicChecklist {
       await dynamicChecklistListener.onFinished(this);
     }
     return true;
+  }
+
+  Future<DynamicChecklist> update(ChecklistStep checklistStep) async {
+    if (dynamicChecklistListener != null) {
+      await dynamicChecklistListener.onChangeChecklistStep(checklistStep);
+    }
+    return this;
   }
 }

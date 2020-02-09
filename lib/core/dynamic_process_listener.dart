@@ -7,5 +7,5 @@ import 'checklist_step.dart';
 abstract class DynamicChecklistListener {
   Future<void> onFinished(DynamicChecklist process);
 
-  Future<void> onChangeProcessStep(ChecklistStep processStep);
+  Future<void> onChangeChecklistStep(ChecklistStep processStep);
 }
