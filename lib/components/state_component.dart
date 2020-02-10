@@ -14,12 +14,15 @@ class StateComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
-      tristate: true,
-      activeColor: processStep.currentStepState != null
-          ? processStep.currentStepState.getColorByStateType()
-          : Colors.redAccent,
+      activeColor: _getActivateColorByState(),
       value: processStep.currentStepState != null,
       onChanged: (value) => onChanged(value, processStep),
     );
+  }
+
+  Color _getActivateColorByState() {
+    return processStep.currentStepState != null
+        ? processStep.currentStepState.getColorByStateType()
+        : processStep.states.last.color;
   }
 }

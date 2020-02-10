@@ -29,25 +29,23 @@ class ChecklistFactory {
                         ChecklistStep(
                           label: "Finish 1",
                           states: [
-                            StepState(stateType: StateType.pending),
-                            StepState(stateType: StateType.inProgress),
-                            StepState(stateType: StateType.finished),
+                            StepState(stateValue: 1),
+                            StepState(stateValue: 2),
                           ],
                         ),
                         ChecklistStep(
                           label: "Finish 2",
                           states: [
-                            StepState(stateType: StateType.pending),
-                            StepState(stateType: StateType.inProgress),
-                            StepState(stateType: StateType.finished),
+                            StepState(stateValue: 1),
+                            StepState(stateValue: 2),
+                            StepState(stateValue: 3),
+                            StepState(stateValue: 4),
                           ],
                         ),
                         ChecklistStep(
                           label: "Finish 3",
                           states: [
-                            StepState(stateType: StateType.pending),
-                            StepState(stateType: StateType.inProgress),
-                            StepState(stateType: StateType.finished),
+                            StepState(stateValue: 1),
                           ],
                         ),
                       ],
@@ -58,26 +56,20 @@ class ChecklistFactory {
                         ChecklistStep(
                           label: "Review 1",
                           states: [
-                            StepState(stateType: StateType.pending),
-                            StepState(stateType: StateType.inProgress),
-                            StepState(stateType: StateType.finished),
+                            StepState(stateValue: 1),
                           ],
                           canWriteAComment: true,
                         ),
                         ChecklistStep(
                           label: "Review 2",
                           states: [
-                            StepState(stateType: StateType.pending),
-                            StepState(stateType: StateType.inProgress),
-                            StepState(stateType: StateType.finished),
+                            StepState(stateValue: 1),
                           ],
                         ),
                         ChecklistStep(
                           label: "Review 3",
                           states: [
-                            StepState(stateType: StateType.pending),
-                            StepState(stateType: StateType.inProgress),
-                            StepState(stateType: StateType.finished),
+                            StepState(stateValue: 1),
                           ],
                         ),
                       ],
@@ -88,45 +80,37 @@ class ChecklistFactory {
               ChecklistStep(
                 label: "Observacion 2",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Observacion 3",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Observacion 4",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Observacion 5",
                 states: [
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Observacion 6",
                 states: [
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Observacion 3",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -138,27 +122,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -170,27 +148,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -202,27 +174,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -234,27 +200,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -266,27 +226,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -298,27 +252,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -330,27 +278,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -362,27 +304,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -394,27 +330,21 @@ class ChecklistFactory {
                 label: "Comentario 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 2",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Comentario 3",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -432,33 +362,25 @@ class ChecklistFactory {
                 label: "1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "2",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "3",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Observacion 3",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -476,25 +398,19 @@ class ChecklistFactory {
                 label: "Finish 1",
                 isRequired: true,
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Finish 2",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Finish 3",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],
@@ -505,25 +421,19 @@ class ChecklistFactory {
               ChecklistStep(
                 label: "Review 1",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Review 2",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
               ChecklistStep(
                 label: "Review 3",
                 states: [
-                  StepState(stateType: StateType.pending),
-                  StepState(stateType: StateType.inProgress),
-                  StepState(stateType: StateType.finished),
+                  StepState(stateValue: 1),
                 ],
               ),
             ],

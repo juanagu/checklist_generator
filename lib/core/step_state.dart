@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class StepState {
-  final StateType stateType;
+  final int stateValue;
   final Color color;
 
   StepState({
-    this.stateType,
+    this.stateValue = 0,
     this.color,
   });
 
@@ -14,21 +14,17 @@ class StepState {
       return color;
     }
 
-    switch (stateType) {
-      case StateType.pending:
-        return null;
-      case StateType.pending:
+    switch (stateValue) {
+      case 1:
         return Colors.orangeAccent;
-      case StateType.inProgress:
+      case 2:
         return Colors.deepPurpleAccent;
-      case StateType.finished:
+      case 3:
         return Colors.pinkAccent;
-      case StateType.blocked:
+      case 4:
         return Colors.redAccent;
       default:
         return null;
     }
   }
 }
-
-enum StateType { pending, inProgress, blocked, finished }
