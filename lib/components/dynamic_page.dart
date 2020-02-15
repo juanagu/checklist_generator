@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import '../core/dynamic_checklist.dart';
 import 'single_comment_page.dart';
@@ -70,22 +71,42 @@ class DynamicPageState extends State<DynamicPage> {
       appBar: AppBar(
         title: Text(checklistPage.title),
       ),
-      body: Container(
-        child: ListView(
-          children: [
-            Column(
-              children: _getGroups(context, checklistPage),
-            ),
-            MaterialButton(
-              height: 60.0,
-              onPressed: isComplete ? () => onPressedPageButton(context) : null,
-              child: Text(isComplete
-                  ? checklistPage.buttonTitle
-                  : checklistPage.errorMessage),
-            ),
-          ],
-        ),
+      body: ScreenTypeLayout.builder(
+        mobile: (BuildContext context) => _buildMobileBody(context),
+        desktop: (BuildContext context) => _buildDesktopBody(context),
       ),
+    );
+  }
+
+  Widget _buildMobileBody(BuildContext context) {
+    return Container(
+      child: _buildBody(context),
+    );
+  }
+
+  Widget _buildDesktopBody(BuildContext context) {
+    return Center(
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.5,
+        child: _buildBody(context),
+      ),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return ListView(
+      children: [
+        Column(
+          children: _getGroups(context, checklistPage),
+        ),
+        MaterialButton(
+          height: 60.0,
+          onPressed: isComplete ? () => onPressedPageButton(context) : null,
+          child: Text(isComplete
+              ? checklistPage.buttonTitle
+              : checklistPage.errorMessage),
+        ),
+      ],
     );
   }
 
